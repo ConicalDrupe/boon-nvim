@@ -34,7 +34,7 @@ keymap.set("n", "<leader>tj", ":tabp<CR>") --  go to previous tab
 -- plugin keymaps
 
 -- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaxmizerToggle<CR>")
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- NvimToggleTree keymap
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
