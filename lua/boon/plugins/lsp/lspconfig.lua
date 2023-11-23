@@ -44,11 +44,23 @@ end
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
 
-  -- configure html server
-  -- lspconfig["html"].setup({
-  --   capabilities = capabilities,
-  --   on_attach = on_attach,
-  -- })
+  -- configure C# server
+  lspconfig["omnisharp"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+   })
+
+  -- configure Markdown server
+  lspconfig["marksman"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+   })
+
+  -- configure Python server
+  lspconfig["pyright"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+   })
   
   -- do the same with other lsp servers
   
