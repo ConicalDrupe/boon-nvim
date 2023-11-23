@@ -46,3 +46,9 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string u
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
+-- tmux-nvim navigator remap
+keymap.set("n","<S-h>", ":<C-U>TmuxNavigateLeft<cr>")
+keymap.set("n", "<S-j>", ":<C-U>TmuxNavigateDown<cr>")
+keymap.set("n", "<S-k>", ":<C-U>TmuxNavigateUp<cr>")
+keymap.set("n", "<S-l>", ":<C-U>TmuxNavigateRight<cr>")
+--keymaps.set("n", "{Previous-Mapping}" ":<C-U>TmuxNavigatePrevious<cr>")
