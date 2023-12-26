@@ -83,6 +83,7 @@ return packer.startup(function(use)
     },
   }) -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+  use("mechatroner/rainbow_csv")
 
   if packer_bootstrap then
     require("packer").sync()
