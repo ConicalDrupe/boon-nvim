@@ -83,7 +83,12 @@ return packer.startup(function(use)
     },
   }) -- enhanced lsp uis
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+
+  -- rainbow csv to veiew and query csv's
   use("mechatroner/rainbow_csv")
+
+  -- nvim jupyter workbook
+  use("luk400/vim-jukit")
 
   if packer_bootstrap then
     require("packer").sync()
