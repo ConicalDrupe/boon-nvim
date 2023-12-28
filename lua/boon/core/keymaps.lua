@@ -52,3 +52,6 @@ keymap.set("n", "<S-j>", ":<C-U>TmuxNavigateDown<cr>")
 keymap.set("n", "<S-k>", ":<C-U>TmuxNavigateUp<cr>")
 keymap.set("n", "<S-l>", ":<C-U>TmuxNavigateRight<cr>")
 --keymaps.set("n", "{Previous-Mapping}" ":<C-U>TmuxNavigatePrevious<cr>")
+
+-- nvim-jupyter kit remap
+keymap.set("n","<S-CR>",":call jukit#send#line()<cr>")
