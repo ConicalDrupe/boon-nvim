@@ -2,6 +2,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
+local ls = require "luasnip"
 
 ---------------------
 -- General Keymaps
@@ -15,6 +16,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
+
+-- page up and page down /w centering
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- increment/decrement numbers: Space + +, Space + -
 keymap.set("n", "<leader>+", "<C-a>") -- increment
@@ -55,3 +60,30 @@ keymap.set("n", "<S-l>", ":<C-U>TmuxNavigateRight<cr>")
 
 -- nvim-jupyter kit remap
 keymap.set("n","<S-CR>",":call jukit#send#line()<cr>")
+
+-- luasnip keymaps
+
+-- for expanding or jumping snippet,in insert or select mode
+keymap.set({ "i", "s" }, "<C-k>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+
+-- for jumping backwards
+keymap.set({ "i", "s" }, "<C-j>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
+
+-- <c-l> is for selecting list of options
+keymap.set("i", "<C-l>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end)
+
+-- shortcut to source my luasnips file again, reloads snippets
+keymap.set("n", "<leader><C-s>", "<cmd>source ~/.config/nvim/lua/boon/plugins/snippets.lua<CR>")
+
