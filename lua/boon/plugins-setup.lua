@@ -90,6 +90,9 @@ return packer.startup(function(use)
   -- nvim jupyter workbook
   use("luk400/vim-jukit")
 
+  -- metals -> for scala
+  use("scalameta/nvim-metals")
+
   if packer_bootstrap then
     require("packer").sync()
   end
