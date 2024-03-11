@@ -18,8 +18,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 
 -- page up and page down /w centering
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
+-- keymap.set("n", "<C-d>", "<C-d>zz")
+-- keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<S-d>", "<C-d>zz")
+keymap.set("n", "<S-u>", "<C-u>zz")
 
 -- increment/decrement numbers: Space + +, Space + -
 keymap.set("n", "<leader>+", "<C-a>") -- increment
