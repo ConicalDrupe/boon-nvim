@@ -39,3 +39,9 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+
+-- Sets how neovim will display certain whitespace in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+opt.list = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }

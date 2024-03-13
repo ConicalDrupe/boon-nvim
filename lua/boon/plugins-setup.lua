@@ -71,6 +71,15 @@ return packer.startup(function(use)
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
   use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 
+  -- treesitter
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+  })
+
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
@@ -92,6 +101,15 @@ return packer.startup(function(use)
 
   -- metals -> for scala
   use("scalameta/nvim-metals")
+
+  -- obsidian with nvim
+  use({
+    "epwalsh/obsidian.nvim",
+    tag = "*",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+    },
+  })
 
   if packer_bootstrap then
     require("packer").sync()
