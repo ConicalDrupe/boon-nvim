@@ -1,28 +1,15 @@
-if vim.g.snippets ~= "luasnip" then
-  return
-end
-
-local ls = require "luasnip"
-local types = require "luasnip.util.types"
-
-ls.config.set_config {
-  -- this tells LuaSnip to remember to keep around the last snippet.
-  -- you can jump back into it even if you move outside of the selection.
-  history = true,
-
-  -- Dynamic snippets, to update as you type!
-  updateevents = "TextChanged,TextChangedI",
-
-  -- Autosnippets:
-  enable_autosnippets = true,
-
-  -- Crazy highlights!!!
-  -- ext_opts = nil,
-  ext_opts = {
-  [types.choiceNode] = {
-    active = {
-      virt_text = { { "󰁍", "Error" } },
-    },
-  },
-},
-}
+return {
+        'L3MON4D3/LuaSnip',
+        history = true,
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+        dependencies = {
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
+        },
+      }
