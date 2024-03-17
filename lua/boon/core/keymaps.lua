@@ -38,6 +38,12 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tk", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tj", ":tabp<CR>") --  go to previous tab
 
+--  See `:help wincmd` for a list of all window commands
+vim.keymap.set('n', '<S-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<S-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<S-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<S-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
 -- plugin keymaps
 
 -- vim-maximizer
@@ -53,15 +59,8 @@ keymap.set("n", "<leader>tj", ":tabp<CR>") --  go to previous tab
 -- keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 -- keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
--- tmux-nvim navigator remap
--- keymap.set("n","<S-h>", ":<C-U>TmuxNavigateLeft<cr>")
--- keymap.set("n", "<S-j>", ":<C-U>TmuxNavigateDown<cr>")
--- keymap.set("n", "<S-k>", ":<C-U>TmuxNavigateUp<cr>")
--- keymap.set("n", "<S-l>", ":<C-U>TmuxNavigateRight<cr>")
---keymaps.set("n", "{Previous-Mapping}" ":<C-U>TmuxNavigatePrevious<cr>")
-
 -- nvim-jupyter kit remap
-keymap.set("n","<S-CR>",":call jukit#send#line()<cr>")
+-- keymap.set("n","<S-CR>",":call jukit#send#line()<cr>")
 
 -- luasnip keymaps
 
