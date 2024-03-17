@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
-local ls = require "luasnip"
+-- local ls = require "luasnip"
 
 ---------------------
 -- General Keymaps
@@ -65,26 +65,26 @@ vim.keymap.set('n', '<S-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- luasnip keymaps
 
 -- for expanding or jumping snippet,in insert or select mode
-keymap.set({ "i", "s" }, "<C-k>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { silent = true })
+-- keymap.set({ "i", "s" }, "<C-k>", function()
+--   if ls.expand_or_jumpable() then
+--     ls.expand_or_jump()
+--   end
+-- end, { silent = true })
 
 -- for jumping backwards
-keymap.set({ "i", "s" }, "<C-j>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true })
+-- keymap.set({ "i", "s" }, "<C-j>", function()
+--   if ls.jumpable(-1) then
+--     ls.jump(-1)
+--   end
+-- end, { silent = true })
 
 -- <c-l> is for selecting list of options
-keymap.set("i", "<C-l>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
-end)
+-- keymap.set("i", "<C-l>", function()
+--   if ls.choice_active() then
+--     ls.change_choice(1)
+--   end
+-- end)
 
 -- shortcut to source my luasnips file again, reloads snippets
-keymap.set("n", "<leader><C-s>", "<cmd>source ~/.config/nvim/lua/boon/plugins/snippets.lua<CR>")
+-- keymap.set("n", "<leader><C-s>", "<cmd>source ~/.config/nvim/lua/boon/plugins/snippets.lua<CR>")
 

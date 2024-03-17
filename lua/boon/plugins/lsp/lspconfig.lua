@@ -137,6 +137,9 @@ return { -- LSP Configuration & Plugins
       local servers = {
         pyright = {},
         r_language_server = {},
+        lua_ls = {},
+        sqlls = {},
+        marksman = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -169,13 +172,26 @@ return { -- LSP Configuration & Plugins
       --    :Mason
       --
       --  You can press `g?` for help in this menu
-      require('mason').setup()
+      require('mason').setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
+        -- NOTE: Boon -> See Conform Plugin Below
+        -- "prettier", -- prettier formatter
+        -- "isort", -- python formatter
+        -- "black", -- python formatter
+        -- "pylint", -- python linter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -211,7 +227,7 @@ return { -- LSP Configuration & Plugins
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { "isort", "black","pylint" },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
