@@ -1,5 +1,5 @@
 return { -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
+   'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for neovim
       'williamboman/mason.nvim',
@@ -218,4 +218,4 @@ return { -- LSP Configuration & Plugins
         -- javascript = { { "prettierd", "prettier" } },
       },
     },
-  },
+  }

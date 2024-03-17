@@ -11,5 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("boon.plugins")
+require("lazy").setup({
+  {import = "boon.plugins"},
+  {import = "boon.plugins.lsp"},
+})
 

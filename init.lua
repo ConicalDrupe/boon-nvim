@@ -1,5 +1,5 @@
 -- require("boon.plugins-setup")
 require("boon.core.keymaps")
-require("boon.lazy")
 require("boon.core.options")
 require("boon.core.autocommands")
+require("boon.lazy")
