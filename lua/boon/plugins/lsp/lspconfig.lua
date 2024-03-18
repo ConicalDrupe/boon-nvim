@@ -125,6 +125,8 @@ return { -- LSP Configuration & Plugins
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false -- to prevent nvim and pyright fighting over who is in charge
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -137,10 +139,8 @@ return { -- LSP Configuration & Plugins
       local servers = {
         pyright = {},
         r_language_server = {},
-        lua_ls = {},
         sqlls = {},
         marksman = {},
-        -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
