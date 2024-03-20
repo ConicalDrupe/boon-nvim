@@ -30,14 +30,19 @@ return {
       end,
     },
     config = function(_, opts)
-      vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
-
+      -- location to save connections, and queries?
+      -- vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
+      vim.g.db_ui_save_location  = '~/Projects/DB/queries'
       vim.api.nvim_create_autocmd("FileType", {
         pattern = {
           "sql",
         },
         command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
       })
+      -- See dadbod-ui docs. See db_ui#query and b:db_ui_table_name b:db_ui_schema_name buffers
+      -- vim.keymap.set('n', '<leader>eeee', function()
+      --   vim.cmd[[ db_ui#query ]]
+      -- end,
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = {
