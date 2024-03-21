@@ -39,6 +39,8 @@ return {
         },
         command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
       })
+      -- sets ExecuteQuery to F5
+      vim.api.nvim_set_keymap({'n','v'}, '<F5>', '<Plug>(DBUI_ExecuteQuery)',{ noremap=false, silent=true})
       -- See dadbod-ui docs. See db_ui#query and b:db_ui_table_name b:db_ui_schema_name buffers
       -- vim.keymap.set('n', '<leader>eeee', function()
       --   vim.cmd[[ db_ui#query ]]
