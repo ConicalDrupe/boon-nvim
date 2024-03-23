@@ -44,53 +44,58 @@ vim.keymap.set('n', '<S-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<S-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<S-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Quarto Helper Keymaps (with open ipython terminal)
+-- Quarto and slime Keymaps
 -- cannot use <C-i>, which is equivalant to <Tab> (like <C-]> is equivalent to <Esc>)
 vim.keymap.set({'n', 'i'}, '<leader>ic','<esc>i<cr>```{python}<cr>```<esc>0' ,{desc = '[i]nsert [c]ode chunk'})
 vim.keymap.set({'n', 'i'}, '<leader>iC','<esc>i<cr>```{r}<cr>```<esc>0' ,{desc = '[i]nsert [c]ode chunk'})
-vim.keymap.set('n', '<leader>cr',':split term://ipython<cr>' ,{desc = '[c]reate ipython [r]epl'})
 
--- plugin keymaps
+-- Create a terminal and then Navigate to Previous Window
+vim.keymap.set('n', '<leader>cr',':split term://ipython<cr> <bar> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
 
--- vim-maximizer
--- keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
-
--- NvimToggleTree keymap
--- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
-
--- telescope, ff finds files, fs finds text in file, fc finds txt on current string
--- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
--- keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
--- keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
--- keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
--- keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-
--- nvim-jupyter kit remap
--- keymap.set("n","<S-CR>",":call jukit#send#line()<cr>")
-
--- luasnip keymaps
-
--- for expanding or jumping snippet,in insert or select mode
--- keymap.set({ "i", "s" }, "<C-k>", function()
---   if ls.expand_or_jumpable() then
---     ls.expand_or_jump()
+-- local function send_cell()
+--   if vim.b['quarto_is_r_mode'] == nil then
+--     vim.fn['slime#send_cell']()
+--     return
 --   end
--- end, { silent = true })
-
--- for jumping backwards
--- keymap.set({ "i", "s" }, "<C-j>", function()
---   if ls.jumpable(-1) then
---     ls.jump(-1)
+--   if vim.b['quarto_is_r_mode'] == true then
+--     vim.g.slime_python_ipython = 0
+--     local is_python = require('otter.tools.functions').is_otter_language_context 'python'
+--     if is_python and not vim.b['reticulate_running'] then
+--       vim.fn['slime#send']('reticulate::repl_python()' .. '\r')
+--       vim.b['reticulate_running'] = true
+--     end
+--     if not is_python and vim.b['reticulate_running'] then
+--       vim.fn['slime#send']('exit' .. '\r')
+--       vim.b['reticulate_running'] = false
+--     end
+--     vim.fn['slime#send_cell']()
 --   end
--- end, { silent = true })
-
--- <c-l> is for selecting list of options
--- keymap.set("i", "<C-l>", function()
---   if ls.choice_active() then
---     ls.change_choice(1)
+-- end
+--
+-- vim.keymap.set({'n','i'},'<m-cr>', send_cell)
+-- --- Send code to terminal with vim-slime
+-- --- If an R terminal has been opend, this is in r_mode
+-- --- and will handle python code via reticulate when sent
+-- --- from a python chunk.
+-- local slime_send_region_cmd = ':<C-u>call slime#send_op(visualmode(), 1)<CR>'
+-- slime_send_region_cmd = vim.api.nvim_replace_termcodes(slime_send_region_cmd, true, false, true)
+-- local function send_region()
+--   -- if filetyps is not quarto, just send_region
+--   if vim.bo.filetype ~= 'quarto' or vim.b['quarto_is_r_mode'] == nil then
+--     vim.cmd('normal' .. slime_send_region_cmd)
+--     return
 --   end
--- end)
-
--- shortcut to source my luasnips file again, reloads snippets
--- keymap.set("n", "<leader><C-s>", "<cmd>source ~/.config/nvim/lua/boon/plugins/snippets.lua<CR>")
-
+--   if vim.b['quarto_is_r_mode'] == true then
+--     vim.g.slime_python_ipython = 0
+--     local is_python = require('otter.tools.functions').is_otter_language_context 'python'
+--     if is_python and not vim.b['reticulate_running'] then
+--       vim.fn['slime#send']('reticulate::repl_python()' .. '\r')
+--       vim.b['reticulate_running'] = true
+--     end
+--     if not is_python and vim.b['reticulate_running'] then
+--       vim.fn['slime#send']('exit' .. '\r')
+--       vim.b['reticulate_running'] = false
+--     end
+--     vim.cmd('normal' .. slime_send_region_cmd)
+--   end
+-- end
