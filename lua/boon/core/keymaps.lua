@@ -46,7 +46,8 @@ vim.keymap.set('n', '<S-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Quarto Helper Keymaps (with open ipython terminal)
 -- cannot use <C-i>, which is equivalant to <Tab> (like <C-]> is equivalent to <Esc>)
-vim.keymap.set({'n', 'i'}, '<leader>i','<esc>i<cr>```{python}<cr>```<esc>0' ,{desc = '[i]nsert code chunk'})
+vim.keymap.set({'n', 'i'}, '<leader>ic','<esc>i<cr>```{python}<cr>```<esc>0' ,{desc = '[i]nsert [c]ode chunk'})
+vim.keymap.set({'n', 'i'}, '<leader>iC','<esc>i<cr>```{r}<cr>```<esc>0' ,{desc = '[i]nsert [c]ode chunk'})
 vim.keymap.set('n', '<leader>cr',':split term://ipython<cr>' ,{desc = '[c]reate ipython [r]epl'})
 
 -- plugin keymaps
