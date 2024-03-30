@@ -25,4 +25,5 @@ utils::assignInNamespace(
   "base"
 )
 ```
-  - install.packages(c("languageserver","devtools","dplyr","reticulate","ggplot2"))
+- go to https://github.com/REditorSupport/languageserver and follow instructions
+  - install.packages(c("languageserver","devtools","dplyr","reticulate","ggplot2","patchwork","remote"))
