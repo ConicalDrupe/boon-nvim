@@ -2,11 +2,22 @@ return {
   "epwalsh/obsidian.nvim",
   version = "*",  -- recommended, use latest release instead of latest commit
   -- Only loads when markdown is opened
-  -- lazy = true,
-  -- ft = "markdown",
+  lazy = true,
+  ft = "markdown",
+  cmd = {'ObsidianNew','ObsidianQuickSwitch','ObsidianSearch'},
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+
+ -- Key Mappings for obsidian
+ keys = {
+      { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New Obsidian note", mode = "n" },
+      { "<leader>oo", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian notes", mode = "n" },
+      { "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Quick Switch", mode = "n" },
+      { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Show location list of backlinks", mode = "n" },
+      { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Follow link under cursor", mode = "n" },
+    },
+
   opts = {
   workspaces = {
     -- {
@@ -25,13 +36,27 @@ return {
       strict = true,
       overrides = {
         -- ...
-      },
-  },
+        },
     },
+  },
+
+
+  -- The below adds autocompletion via nvim-cmp
   completion = {
     nvim_cmp = true,
     min_chars = 2,
   },
+
+  new_notes_location = "current_dir",
+  wiki_link_func = function(opts)
+    if opts.id == nil then
+      return string.format("[[%s]]", opts.label)
+    elseif opts.label ~= opts.id then
+      return string.format("[[%s|%s]]", opts.id, opts.label)
+    else
+      return string.format("[[%s]]", opts.id)
+    end
+  end,
 
   note_frontmatter_func = function(note)
     -- This is equivalent to the default frontmatter function.
