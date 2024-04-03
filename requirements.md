@@ -12,6 +12,8 @@
 
 # Node and npm. -version?
 
+# sudo apt install ripgrep
+
 #R
 - install R
 - add the following snippet to .Rprofile
