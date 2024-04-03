@@ -10,6 +10,8 @@ return { -- Autocompletion
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      -- 'hrsh7th/cmp-buffer',
     },
     config = function()
       -- See `:help cmp`
@@ -24,6 +26,22 @@ return { -- Autocompletion
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
+
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          {
+            name = 'cmdline',
+            option = {
+              ignore_cmds = { 'Man', '!' }
+            }
+          }
+        })
+      }),
+
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
