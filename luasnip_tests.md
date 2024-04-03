@@ -6,7 +6,9 @@
     - exporting csv file
     - EDA plots? or just use R
 
-- [ ] Create SQL snippets, integrate with dadbod-ui
+- [ ] Obsidian wiki snippets (create [[file_name_here]])
+
+- [ ] Create SQL snippets, integrate with dadbod-ui?
 
 # Configure
 - [ ] jump to nvim configuration
