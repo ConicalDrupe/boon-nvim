@@ -79,6 +79,7 @@ return { -- Autocompletion
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'vim-dadbod-completion'},
+          -- { name = 'buffer' },
         },
       }
 
