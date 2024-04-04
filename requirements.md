@@ -19,6 +19,13 @@
 sudo apt install xdg-utils \n
 for URL opening; will change options in plugins/obsidian.lua if on different OS (default is linux)
 
+# OhMyZsh
+- PowerLevel10k
+
+# Cmd utilities
+sudo apt-get install xclip
+ex. cat file | xclip
+
 #R
 - install R
 - add the following snippet to .Rprofile
