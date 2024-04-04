@@ -11,22 +11,23 @@ return {
 
  -- Key Mappings for obsidian
  keys = {
-      { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New Obsidian note", mode = "n" },
+      -- { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New Obsidian note", mode = "n" },
       { "<leader>oo", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian notes", mode = "n" },
       { "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Quick Switch", mode = "n" },
       { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Show location list of backlinks", mode = "n" },
       { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Follow link under cursor", mode = "n" },
+      { "<leader>ov", "<cmd>ObsidianWorkspace<cr>", desc = "Follow link under cursor", mode = "n" },
     },
 
   opts = {
   workspaces = {
-    -- {
-    --   name = "Notes_2024",
-    --   path = "~/Vaults/Notes_2024",
-    -- },
     {
-      name = "Notes_2024",
-      path = "/home/boon/Vaults/Notes_2024",
+      name = "Notes2024",
+      path = "/home/boon/Vaults/Notes2024",
+    },
+    {
+      name = "Medium",
+      path = "/home/boon/Vaults/Medium",
     },
     {
       name = "localVault",
@@ -90,7 +91,7 @@ return {
   end,
 
 
-  ---@param url string
+  -- -@param url string
   follow_url_func = function(url)
     -- Open the URL in the default web browser.
     -- vim.fn.jobstart({"open", url})  -- Mac OS
@@ -107,5 +108,7 @@ return {
   config = function (_, opts)
     vim.opt.conceallevel = 1
     require('obsidian').setup(opts)
+    vim.keymap.set('n','<leader>on', '<cmd>ObsidianNew<cr>')
+      -- { "<leader>on", "<cmd>ObsidianNew<cr>"}
   end
 }
