@@ -56,7 +56,7 @@ vim.keymap.set('n', '<leader>cr',':split term://ipython<cr> <bar> <C-w><C-p>' ,{
 -- vim.keymap.set('n', '<C-n>', '<cmd>edit ~/Vaults/Notes_2024/<cr>')
 vim.keymap.set('n', '<C-n>',function ()
   vim.cmd([[vsplit]])
-  vim.cmd([[edit ~/Vaults/Notes_2024/]])
+  vim.cmd([[edit ~/Vaults/Notes2024/]])
 end)
 
 -- local function send_cell()
