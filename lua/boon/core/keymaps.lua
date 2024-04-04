@@ -53,7 +53,11 @@ vim.keymap.set({'n', 'i'}, '<leader>iC','<esc>i<cr>```{r}<cr>```<esc>0' ,{desc =
 vim.keymap.set('n', '<leader>cr',':split term://ipython<cr> <bar> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
 
 -- Open my Obsian in current buffer
-vim.keymap.set('n', '<C-n>', '<cmd>edit ~/Vaults/Notes_2024/<cr>')
+-- vim.keymap.set('n', '<C-n>', '<cmd>edit ~/Vaults/Notes_2024/<cr>')
+vim.keymap.set('n', '<C-n>',function ()
+  vim.cmd([[vsplit]])
+  vim.cmd([[edit ~/Vaults/Notes_2024/]])
+end)
 
 -- local function send_cell()
 --   if vim.b['quarto_is_r_mode'] == nil then
