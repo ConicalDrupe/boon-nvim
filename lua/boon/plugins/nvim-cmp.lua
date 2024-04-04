@@ -87,7 +87,8 @@ return { -- Autocompletion
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          { name = 'path', keyword_length = 3 }
+          { name = 'path', keyword_length = 3 },
+          -- { name = 'buffer', keyword_length = 3 },
         }, {
           {
             name = 'cmdline',
