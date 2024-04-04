@@ -21,6 +21,10 @@ ls.add_snippets("all", {
   ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
 })
 
+ls.add_snippets("markdown", {
+  ls.parser.parse_snippet("l", "[[$1]]")
+})
+
 -- tutorial lua snippets - remember $0 is last visited
 ls.add_snippets("lua", {
   ls.parser.parse_snippet("lf", "-- Defined in $TM_FILENAME\nlocal $1 = function($2)\n  $0\nend"),
