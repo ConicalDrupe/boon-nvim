@@ -14,6 +14,9 @@
 
 # sudo apt install ripgrep
 
+# For URL follow in markdown
+sudo apt install xdg-utils
+
 #R
 - install R
 - add the following snippet to .Rprofile
