@@ -14,8 +14,10 @@
 
 # sudo apt install ripgrep
 
-# For URL follow in markdown
-sudo apt install xdg-utils
+# Obsidian
+## For URL follow in markdown
+sudo apt install xdg-utils \n
+for URL opening; will change options in plugins/obsidian.lua if on different OS (default is linux)
 
 #R
 - install R
