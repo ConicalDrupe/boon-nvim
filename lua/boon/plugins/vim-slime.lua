@@ -23,7 +23,7 @@ return {
     ]]
   end,
   config = function()
-    vim.keymap.set({'n','i'},'<m-cr>', function ()
+    vim.keymap.set({'n','i'},'<leader><C-p>', function ()
       vim.cmd([[ call slime#send_cell() ]])
     end, { desc = 'send code cell to terminal' })
       end,
