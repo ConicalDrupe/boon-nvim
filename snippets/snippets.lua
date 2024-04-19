@@ -41,6 +41,7 @@ ls.add_snippets("python",{
   ls.parser.parse_snippet("OLS", "x_train, x_test , y_train, y_test = train_test_split($1 \n,$2 \n,test_size=0.20 \n,random_state=1) \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n\nlinear_model = LinearRegression() \nlinear_model.fit(x_train,y_train)"),
   ls.parser.parse_snippet("csv", "df = pd.read_csv(os.path.join(os.getcwd(),'$1.csv'))\n"),
   ls.parser.parse_snippet("back_one_dir", "back_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)"),
+  ls.parser.parse_snippet("save_csv", "$1.to_csv(os.path.join(os.getcwd(),'$2.csv'),index=False)\n"),
 
 
   -- ls.parser.parse_snippet("evaluate","Code here"),
