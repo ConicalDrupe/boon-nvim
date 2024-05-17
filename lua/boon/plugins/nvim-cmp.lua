@@ -11,7 +11,7 @@ return { -- Autocompletion
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      -- 'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-buffer',
     },
     config = function()
       -- See `:help cmp`
@@ -78,10 +78,18 @@ return { -- Autocompletion
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'vim-dadbod-completion'},
+          -- { name = 'vim-dadbod-completion'},
           -- { name = 'buffer' },
         },
       }
+
+      -- nvim-dadbod-autocomplete
+      cmp.setup.filetype({ 'sql' }, {
+      sources = {
+        {name = 'vim-dadbod-completion'},
+        {name = 'buffer'}, --useful for taking info from current file
+      },
+    })
 
       -- `:` cmdline setup.
       cmp.setup.cmdline(':', {
