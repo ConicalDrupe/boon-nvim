@@ -40,7 +40,11 @@ return {
         command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
       })
       -- sets ExecuteQuery to F5
-      vim.api.nvim_set_keymap({'n','v'}, '<F5>', '<Plug>(DBUI_ExecuteQuery)',{ noremap=false, silent=true})
+      vim.keymap.set({'n','v'}, '<F5>', '<Plug>(DBUI_ExecuteQuery)',{ noremap=false, silent=true})
+      -- Default of Save Query is <leader>W
+      vim.keymap.set({'n','v'}, '<leader>W', '<Plug>(DBUI_SaveQuery)',{ noremap=false, silent=true})
+
+      -- For Table Filling
       -- See dadbod-ui docs. See db_ui#query and b:db_ui_table_name b:db_ui_schema_name buffers
       -- vim.keymap.set('n', '<leader>eeee', function()
       --   vim.cmd[[ db_ui#query ]]
