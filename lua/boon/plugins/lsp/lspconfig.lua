@@ -138,7 +138,7 @@ return { -- LSP Configuration & Plugins
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         pyright = {},
-        r_language_server = {},
+        -- r_language_server = {},
         sqlls = {},
         marksman = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -228,7 +228,7 @@ return { -- LSP Configuration & Plugins
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         python = { "isort", "black","pylint" },
-        R = { 'stylr' },
+        -- R = { 'stylr' },
         markdown = { 'mdformat' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
