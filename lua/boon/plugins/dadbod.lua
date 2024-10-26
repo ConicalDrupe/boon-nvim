@@ -32,7 +32,7 @@ return {
     config = function(_, opts)
       -- location to save connections, and queries?
       -- vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
-      vim.g.db_ui_save_location  = '~/Projects/DB/queries'
+      vim.g.db_ui_save_location  = '~/sql'
       vim.api.nvim_create_autocmd("FileType", {
         pattern = {
           "sql",
