@@ -56,8 +56,8 @@ vim.keymap.set('n', '<leader>cR',':split term://R --no-save<cr> <bar> <C-w><C-p>
 -- Open my Obsian in current buffer
 -- vim.keymap.set('n', '<C-n>', '<cmd>edit ~/Vaults/Notes_2024/<cr>')
 vim.keymap.set('n', '<C-n>',function ()
-  vim.cmd([[vsplit]])
-  vim.cmd([[edit ~/Vaults/Notes2024/]])
+    vim.cmd([[vsplit]])
+    vim.cmd([[edit ~/Vaults/Notes2024/]])
 end)
 
 -- local function send_cell()
@@ -111,23 +111,23 @@ vim.g['quarto_is_r_mode'] = nil
 vim.g['reticulate_running'] = false
 
 local function send_cell()
-  if vim.b['quarto_is_r_mode'] == nil then
-    vim.fn['slime#send_cell']()
-    return
-  end
-  if vim.b['quarto_is_r_mode'] == true then
-    vim.g.slime_python_ipython = 0
-    local is_python = require('otter.tools.functions').is_otter_language_context 'python'
-    if is_python and not vim.b['reticulate_running'] then
-      vim.fn['slime#send']('reticulate::repl_python()' .. '\r')
-      vim.b['reticulate_running'] = true
+    if vim.b['quarto_is_r_mode'] == nil then
+        vim.fn['slime#send_cell']()
+        return
     end
-    if not is_python and vim.b['reticulate_running'] then
-      vim.fn['slime#send']('exit' .. '\r')
-      vim.b['reticulate_running'] = false
+    if vim.b['quarto_is_r_mode'] == true then
+        vim.g.slime_python_ipython = 0
+        local is_python = require('otter.tools.functions').is_otter_language_context 'python'
+        if is_python and not vim.b['reticulate_running'] then
+            vim.fn['slime#send']('reticulate::repl_python()' .. '\r')
+            vim.b['reticulate_running'] = true
+        end
+        if not is_python and vim.b['reticulate_running'] then
+            vim.fn['slime#send']('exit' .. '\r')
+            vim.b['reticulate_running'] = false
+        end
+        vim.fn['slime#send_cell']()
     end
-    vim.fn['slime#send_cell']()
-  end
 end
 
 --- Send code to terminal with vim-slime
@@ -137,24 +137,41 @@ end
 local slime_send_region_cmd = ':<C-u>call slime#send_op(visualmode(), 1)<CR>'
 slime_send_region_cmd = vim.api.nvim_replace_termcodes(slime_send_region_cmd, true, false, true)
 local function send_region()
-  -- if filetyps is not quarto, just send_region
-  if vim.bo.filetype ~= 'quarto' or vim.b['quarto_is_r_mode'] == nil then
-    vim.cmd('normal' .. slime_send_region_cmd)
-    return
-  end
-  if vim.b['quarto_is_r_mode'] == true then
-    vim.g.slime_python_ipython = 0
-    local is_python = require('otter.tools.functions').is_otter_language_context 'python'
-    if is_python and not vim.b['reticulate_running'] then
-      vim.fn['slime#send']('reticulate::repl_python()' .. '\r')
-      vim.b['reticulate_running'] = true
+    -- if filetyps is not quarto, just send_region
+    if vim.bo.filetype ~= 'quarto' or vim.b['quarto_is_r_mode'] == nil then
+        vim.cmd('normal' .. slime_send_region_cmd)
+        return
     end
-    if not is_python and vim.b['reticulate_running'] then
-      vim.fn['slime#send']('exit' .. '\r')
-      vim.b['reticulate_running'] = false
+    if vim.b['quarto_is_r_mode'] == true then
+        vim.g.slime_python_ipython = 0
+        local is_python = require('otter.tools.functions').is_otter_language_context 'python'
+        if is_python and not vim.b['reticulate_running'] then
+            vim.fn['slime#send']('reticulate::repl_python()' .. '\r')
+            vim.b['reticulate_running'] = true
+        end
+        if not is_python and vim.b['reticulate_running'] then
+            vim.fn['slime#send']('exit' .. '\r')
+            vim.b['reticulate_running'] = false
+        end
+        vim.cmd('normal' .. slime_send_region_cmd)
     end
-    vim.cmd('normal' .. slime_send_region_cmd)
-  end
 end
 
 vim.keymap.set({'n','i'},'<leader><C-p>',send_cell, { desc = 'send code cell to terminal' })
+
+-- RIP PAP and VRIP (My helpful utilities :] )
+
+-- RIP
+-- "r creates a register for the following command, <C-R>r pastes this named register r
+-- <C-R>0 pastes the default yank register
+vim.keymap.set({'n'}, 'rip', '"ryiw vip :sno/<C-R>r//g<left><left>', { desc = '[R]eplace word [I]nside [P]aragraph '})
+
+-- VRIP
+-- (Removes iw in yiw, which is [y]ank [i]nside [w]hitespace)
+-- Also uses :sno which turns of regex
+vim.keymap.set({'v'}, 'rip', '"ry vip :sno/<C-R>r//g<left><left>', { desc = 'Visual [R]eplace word [I]nside [P]aragraph '})
+
+-- PAP 
+-- Same principle as RIP and VRIP, except auto completes repalce by pasting in current yank buffer ( <C-R>0 )
+vim.keymap.set({'n'}, 'pip', '"ryiw vip :sno/<C-R>r/<C-R>0/g<cr>', { desc = '[P]aste [I]nside [P]aragraph '})
+vim.keymap.set({'v'}, 'pip', '"ry vip :sno/<C-R>r/<C-R>0/g<cr>', { desc = 'Visual [R]eplace [I]nside [P]aragraph '})
