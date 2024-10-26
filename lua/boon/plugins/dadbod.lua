@@ -1,22 +1,3 @@
--- return {
---   'kristijanhusak/vim-dadbod-ui',
---   dependencies = {
---     { 'tpope/vim-dadbod', lazy = true},
---     { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
---   },
---   cmd = {
---     'DBUI',
---     'DBUIToggle',
---     'DBUIAddConnection',
---     'DBUIFindBuffer',
---   },
---   init = function()
---     -- Your DBUI configuration
---     vim.g.db_ui_use_nerd_fonts = 1
---   end,
--- }
-
-
 return {
   {
     "tpope/vim-dadbod",
@@ -33,6 +14,21 @@ return {
       -- location to save connections, and queries?
       -- vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
       vim.g.db_ui_save_location  = '~/sql'
+
+      -- Table Helpers
+      vim.g.db_ui_table_helpers = {
+
+              sqlite = {
+                  top= "SELECT * FROM {optional_schema}{table} LIMIT 100"
+              },
+
+              sqlserver={
+                  top= "SELECT TOP 100 * FROM {optional_schema}{table}"
+              },
+
+          },
+
+
       vim.api.nvim_create_autocmd("FileType", {
         pattern = {
           "sql",
@@ -60,6 +56,17 @@ return {
           vim.schedule(opts.db_completion)
         end,
       })
+
+    -- -- Table Helpers
+    -- vim.g.db_ui_table_helpers = {
+    --             "sqlite": {
+    --                 "top": "SELECT * FROM {optional_schema}{table} LIMIT 100"
+    --             },
+    --             "sqlserver":{
+    --                 "top": "SELECT TOP 100 * FROM {optional_schema}{table}"
+    --             },
+    --         },
+
     end,
     keys = {
       { "<leader>Dt", "<cmd>DBUIToggle<cr>", desc = "Toggle UI" },
