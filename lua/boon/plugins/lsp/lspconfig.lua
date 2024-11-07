@@ -209,7 +209,6 @@ return { -- LSP Configuration & Plugins
         },
       }
     end,
-  },
 
   { -- Autoformat
     'stevearc/conform.nvim',
@@ -237,4 +236,5 @@ return { -- LSP Configuration & Plugins
         -- javascript = { { "prettierd", "prettier" } },
       },
     },
-  }
+  },
+}
