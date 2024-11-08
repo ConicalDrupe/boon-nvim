@@ -2,7 +2,8 @@ return {
     'quarto-dev/quarto-nvim',
   dependencies = {
     {'jmbuhr/otter.nvim',
-      opts={},},
+      opts={},
+      tag='v1.15.1'},
     {'hrsh7th/nvim-cmp'},
     {'neovim/nvim-lspconfig'},
     {'nvim-treesitter/nvim-treesitter'},
