@@ -173,5 +173,5 @@ vim.keymap.set({'v'}, 'rip', '"ry vip :sno/<C-R>r//g<left><left>', { desc = 'Vis
 
 -- PAP 
 -- Same principle as RIP and VRIP, except auto completes repalce by pasting in current yank buffer ( <C-R>0 )
-vim.keymap.set({'n'}, 'pip', '"ryiw vip :sno/<C-R>r/<C-R>0/g<cr>', { desc = '[P]aste [I]nside [P]aragraph '})
-vim.keymap.set({'v'}, 'pip', '"ry vip :sno/<C-R>r/<C-R>0/g<cr>', { desc = 'Visual [R]eplace [I]nside [P]aragraph '})
+-- vim.keymap.set({'n'}, 'pip', '"ryiw vip :sno/<C-R>r/<C-R>0/g<cr>', { desc = '[P]aste [I]nside [P]aragraph '})
+-- vim.keymap.set({'v'}, 'pip', '"ry vip :sno/<C-R>r/<C-R>0/g<cr>', { desc = 'Visual [R]eplace [I]nside [P]aragraph '})
