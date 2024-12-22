@@ -1,7 +1,11 @@
-<!-- 1) Replace word Around Paragraph (RAP) -->
-<!-- 2) Replace Visual seleciton Around Paragraph (V RAP) -->
+# To-do -> dadbod
+- [ ] Location to save queries
+- [ ] Navigate through results (List of results, and also navigate through columns/rows)
+- [ ] Navigate through Queries
+- [ ] Create helper queries (make sure they do not save)
+    - Test current MSSQL and SQLITE helper
+- [ ] When using helper queries,rename buffer to helper query
 
-2) SQL Helper Queries
-- Test current MSSQL and SQLITE helper
-- Add more
+- [x] Replace word Around Paragraph (RAP)
+- [x] Replace Visual selection Around Paragraph (V RAP)
 
