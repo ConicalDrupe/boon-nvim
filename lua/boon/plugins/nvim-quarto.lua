@@ -1,12 +1,12 @@
 return {
+
+{
     'quarto-dev/quarto-nvim',
   dependencies = {
-    {'jmbuhr/otter.nvim',
-      opts={},
-      tag='v1.15.1'},
-    {'hrsh7th/nvim-cmp'},
-    {'neovim/nvim-lspconfig'},
-    {'nvim-treesitter/nvim-treesitter'},
+    'jmbuhr/otter.nvim',
+    'hrsh7th/nvim-cmp',
+    'neovim/nvim-lspconfig',
+    'nvim-treesitter/nvim-treesitter',
     },
   opts={
     closePreviewOnExit = true,
@@ -39,5 +39,25 @@ return {
       references = "gr",
       document_symbols = "gS",
     }
+  }
+},
+
+  { -- directly open ipynb files as quarto docuements
+    -- and convert back behind the scenes
+    'GCBallesteros/jupytext.nvim',
+    opts = {
+      custom_language_formatting = {
+        python = {
+          extension = 'qmd',
+          style = 'quarto',
+          force_ft = 'quarto',
+        },
+        r = {
+          extension = 'qmd',
+          style = 'quarto',
+          force_ft = 'quarto',
+        },
+      },
+    },
   },
 }
