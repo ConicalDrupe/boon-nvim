@@ -10,7 +10,11 @@
 
 - pip3 install pynvim jupyter (ipython?)
 
-## For Latex Rendering
+## For Latex 
+### Support
+- Treesitter CLI
+    - TSInstall latex
+### Rendering
 - Install zathura
 
 ## Optional R support
