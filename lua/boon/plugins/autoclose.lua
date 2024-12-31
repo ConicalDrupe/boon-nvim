@@ -4,6 +4,8 @@ return {
         disabled_filetypes = {"text", "markdown"},
         keys = {
             ["$"] = {escape = true, close=true,pair ="$$", disabled_filetypes={}},
+            ["'"] = { escape = true, close = true, pair = "''", disabled_filetypes={"markdown"}},
+            ["`"] = { escape = true, close = false, pair = "```" },
         }
     }
 }
