@@ -34,3 +34,12 @@ utils::assignInNamespace(
 ```
 - go to https://github.com/REditorSupport/languageserver and follow instructions
 - install.packages(c("languageserver","devtools","dplyr","reticulate","ggplot2","patchwork","remote","GGally"))
+
+# WSL2
+- Install Xephyr
+- Change permissions for /temp/.X11-server if needed
+Xephyr :1 -fullscreen
+(In new terminal) -> 
+$ DISPLAY:=1
+$ awesome
+
