@@ -16,6 +16,8 @@
     - TSInstall latex
 ### Rendering
 - Install zathura
+### LSP
+- Install latexmk
 
 ## Optional R support
 - install R
