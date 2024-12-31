@@ -20,3 +20,9 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.wo.number = false
   end,
 })
+
+-- Disable Treesitter for latex files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "tex" , 
+    command = "TSBufDisable highlight"
+})
