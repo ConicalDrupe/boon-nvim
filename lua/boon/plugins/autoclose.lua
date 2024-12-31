@@ -6,6 +6,7 @@ return {
             ["$"] = {escape = true, close=true,pair ="$$", disabled_filetypes={}},
             ["'"] = { escape = true, close = true, pair = "''", disabled_filetypes={"markdown"}},
             ["`"] = { escape = true, close = false, pair = "```" },
+            ["*"] = { escape = true, close = false, pair = "**", enabled_filetypes={"markdown"} },
         }
     }
 }
