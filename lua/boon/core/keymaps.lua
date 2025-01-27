@@ -50,7 +50,7 @@ vim.keymap.set({'n', 'i'}, '<leader>ic','<esc>i<cr>```{python}<cr>```<esc>0' ,{d
 vim.keymap.set({'n', 'i'}, '<leader>iC','<esc>i<cr>```{r}<cr>```<esc>0' ,{desc = '[i]nsert R [c]ode chunk'})
 
 -- Create a terminal and then Navigate to Previous Window
-vim.keymap.set('n', '<leader>cr',':split term://ipython<cr> <bar> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
+vim.keymap.set('n', '<leader>cr',':split term://ipython3<cr> <bar> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
 vim.keymap.set('n', '<leader>cR',':split term://R --no-save<cr> <bar> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
 
 -- Open my Obsian in current buffer
