@@ -18,15 +18,16 @@ local rep = require("luasnip.extras").rep
 -- Keep snippets below
 -- ls.add_snippets(filetype, snippets)
 ls.add_snippets("all", {
-  ls.parser.parse_snippet("libraries_ds", "import os \nimport numpy as np \nimport pandas as pd \nimport matplotlib.pyplot as plt \n"),
-  ls.parser.parse_snippet("scaler", "from sklearn.preprocessing import StandardScaler \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n"),
-  ls.parser.parse_snippet("histogram","plt.figure() \nplt.hist($1,bins=None) \nplt.title('$2')\nplt.show()\n"),
-  ls.parser.parse_snippet("subplots","fig, axes = plt.subplots(nrows=$1,ncols=$2) \naxes[0].$1 \naxes[0].set_title('$2') \naxes[1].$3 \naxes[1].set_title('$4') \nplt.show() \n"),
-  ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
-  ls.parser.parse_snippet("OLS", "x_train, x_test , y_train, y_test = train_test_split($1 \n,$2 \n,test_size=0.20 \n,random_state=1) \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n\nlinear_model = LinearRegression() \nlinear_model.fit(x_train,y_train) \n"),
-  ls.parser.parse_snippet("read_csv", "df = pd.read_csv(os.path.join(os.getcwd(),'$1.csv'))\n"),
-  ls.parser.parse_snippet("back_one_dir", "back_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)"),
-  ls.parser.parse_snippet("save_csv", "$1.to_csv(os.path.join(os.getcwd(),'$2'),index=False)\n"),
+    ls.parser.parse_snippet("libraries_ds", "import os \nimport numpy as np \nimport pandas as pd \nimport matplotlib.pyplot as plt \n"),
+    ls.parser.parse_snippet("scaler", "from sklearn.preprocessing import StandardScaler \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n"),
+    ls.parser.parse_snippet("histogram","plt.figure() \nplt.hist($1,bins=None) \nplt.title('$2')\nplt.show()\n"),
+    ls.parser.parse_snippet("subplots","fig, axes = plt.subplots(nrows=$1,ncols=$2) \naxes[0].$1 \naxes[0].set_title('$2') \naxes[1].$3 \naxes[1].set_title('$4') \nplt.show() \n"),
+    ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
+    ls.parser.parse_snippet("OLS", "x_train, x_test , y_train, y_test = train_test_split($1 \n,$2 \n,test_size=0.20 \n,random_state=1) \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n\nlinear_model = LinearRegression() \nlinear_model.fit(x_train,y_train) \n"),
+    ls.parser.parse_snippet("read_csv", "df = pd.read_csv(os.path.join(os.getcwd(),'$1.csv'))\n"),
+    ls.parser.parse_snippet("back_one_dir", "back_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)"),
+    ls.parser.parse_snippet("save_csv", "$1.to_csv(os.path.join(os.getcwd(),'$2'),index=False)\n"),
+    ls.parser.parse_snippet("options pandas display","pd.options.display.max_rows = None \npd.options.display.max_columns = None"),
 })
 
 ls.add_snippets("markdown", {
