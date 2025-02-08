@@ -14,6 +14,8 @@ return {
       -- location to save connections, and queries?
       -- vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
       vim.g.db_ui_save_location  = '~/sql'
+      -- Disables execute on save
+      vim.g.db_ui_execute_on_save=  '0'
 
       -- Table Helpers
       vim.g.db_ui_table_helpers = {
