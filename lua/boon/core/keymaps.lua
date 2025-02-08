@@ -32,7 +32,8 @@ keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
-keymap.set("n", "<leader>sr", "<C-w>b 10<C-w>_ <C-w><C-k>", {desc = '[S]plit [R]esize'}) -- make bottom window 10 lines (for ipython terminal)
+keymap.set("n", "<leader>sr", "<C-w>b 10<C-w>_ <C-w><C-k>", {desc = '[s]plit [r]esize - small bottom'}) -- make bottom window 10 lines (for ipython terminal)
+keymap.set("n", "<leader>sR", "<C-w>b <C-w>_ <C-w><C-k>", {desc = '[s]plit [R]esize - large bottom'}) -- make bottom window 10 lines (for ipython terminal)
 
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
