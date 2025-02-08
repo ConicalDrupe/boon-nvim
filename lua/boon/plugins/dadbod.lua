@@ -15,7 +15,9 @@ return {
       -- vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
       vim.g.db_ui_save_location  = '~/sql'
       -- Disables execute on save
-      vim.g.db_ui_execute_on_save=  '0'
+      vim.g.db_ui_execute_on_save =  '0'
+      vim.g.db_ui_use_nerd_fonts =  '1'
+      vim.g.db_ui_show_database_icon =  '1'
 
       -- Table Helpers
       vim.g.db_ui_table_helpers = {
