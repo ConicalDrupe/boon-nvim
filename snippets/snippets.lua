@@ -54,3 +54,10 @@ ls.add_snippets("python",{
 
   -- ls.parser.parse_snippet("evaluate","Code here"),
   })
+
+ls.add_snippets("sql", {
+  ls.parser.parse_snippet("create", "CREATE TABLE $0 (\n $1\n);"),
+  ls.parser.parse_snippet("top", "select *\nfrom $0\nLIMIT 10;"),
+  })
+
+
