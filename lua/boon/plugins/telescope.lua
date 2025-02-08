@@ -19,6 +19,10 @@ return {
             ["<S-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
           },
+          n = {
+            ["d"] = require('telescope.actions').delete_buffer, --used to delete buffer in explorer
+            ["q"] = require('telescope.actions').close, -- close buffer explorer - from <leader><S-h>
+           },
         },
       },
     })

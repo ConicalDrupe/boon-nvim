@@ -44,6 +44,9 @@ vim.keymap.set('n', '<S-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<S-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<S-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Telescope for viewing buffers
+vim.keymap.set('n', '<leader><S-h>', '<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<CR>', {desc = '[H]elp Buffers'})
+
 -- Quarto and slime Keymaps
 -- cannot use <C-i>, which is equivalant to <Tab> (like <C-]> is equivalent to <Esc>)
 vim.keymap.set({'n', 'i'}, '<leader>ic','<esc>i<cr>```{python}<cr>```<esc>0' ,{desc = '[i]nsert python [c]ode chunk'})
