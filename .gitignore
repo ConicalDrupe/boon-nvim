@@ -1,2 +1,3 @@
 .jukit
 db_ui/*
+lua/boon/core/plugins/nvim-obsidian.lua
