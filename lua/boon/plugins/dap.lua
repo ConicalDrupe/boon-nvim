@@ -33,13 +33,14 @@ return {
     -- endOfhiding API keys
 
 
-      local c_ls_debugger = "gdb"--vim.fn.exepath "/mnt/c/Users/C/.vscode/extensions/ms-vscode.cpptools-1.24.5-win32-x64/debugAdapters/bin/OpenDebugAD7.exe"
+      local c_ls_debugger = vim.fn.exepath "/usr/bin/gdb"
       if c_ls_debugger ~= "" then
         dap.adapters.gdb = {
           type = "executable",
           command = c_ls_debugger,
           options = {
-                       detached = false
+                       -- detached = false,
+                       initialized_timeout_sec = 10,
                     }
         }
 
@@ -69,6 +70,16 @@ return {
             end,
             cwd = '${workspaceFolder}',
           },
+        {
+        name = 'Attach to gdbserver :1234',
+        type = 'gdb',
+        request = 'attach',
+        target = 'localhost:1234',
+        program = function()
+           return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}'
+      },
         }
       end
 
