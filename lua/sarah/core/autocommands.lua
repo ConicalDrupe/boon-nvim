@@ -12,17 +12,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
-vim.api.nvim_create_autocmd('TermOpen', {
-  desc = 'remove line numbers in terminal',
-  group = vim.api.nvim_create_augroup('quarto-term', { clear = true }),
-  callback = function()
-    vim.wo.number = false
-  end,
-})
-
--- Disable Treesitter for latex files
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "tex" , 
-    command = "TSBufDisable highlight"
-})

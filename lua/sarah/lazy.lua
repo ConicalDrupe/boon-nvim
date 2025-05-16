@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {import = "boon.plugins"},
-  {import = "boon.plugins.lsp"},
+  {import = "sarah.plugins"},
+  {import = "sarah.plugins.lsp"},
 })
 

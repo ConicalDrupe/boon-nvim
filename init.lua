@@ -1,4 +1,4 @@
-require("boon.core.keymaps")
-require("boon.core.options")
-require("boon.core.autocommands")
-require("boon.lazy")
+require("sarah.core.keymaps")
+require("sarah.core.options")
+require("sarah.core.autocommands")
+require("sarah.lazy")
