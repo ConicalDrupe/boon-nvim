@@ -53,7 +53,7 @@ return {
             end
           end, {silent = true})
 
-          vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/boon/plugins/luasnip.lua<CR>')
+          vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/sarah/plugins/luasnip.lua<CR>')
       end,
 
       }

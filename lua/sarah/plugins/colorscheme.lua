@@ -1,13 +1,5 @@
 return {
 
-    -- -- My Original Nightfly
-    -- "bluz71/vim-nightfly-guicolors",
-    -- priority = 1000, -- load this before all the other start plugins
-    -- config = function()
-    --   --load colorscheme here
-    --   vim.cmd([[colorscheme nightfly]]) 
-    -- end,
-
     -- -- Which Color Scheme
     -- "sontungexpt/witch",
     -- priority = 1000,
@@ -22,19 +14,6 @@ return {
     -- config = function()
     --   vim.cmd([[colorscheme visual_studio_code]])
     -- end,
-
-    -- -- Nordic
-    -- "andersevenrud/nordic.nvim",
-    -- priority = 1000, -- load this before all the other start plugins
-    -- config = function()
-    --     vim.g.nord_underline_option = 'none'
-    --     vim.g.nord_italic = true
-    --     vim.g.nord_italic_comments = false
-    --     vim.g.nord_minimal_mode = false
-    --     vim.g.nord_alternate_backgrounds = false
-    --     vim.cmd([[colorscheme nordic]])
-    -- end,
-
 
     -- Rose-Pine
     "rose-pine/neovim",

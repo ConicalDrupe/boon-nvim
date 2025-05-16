@@ -33,7 +33,6 @@ return {
           "bash",
           "lua",
           "vim",
-          "dockerfile",
           "gitignore",
           "query",
           "c",
