@@ -74,7 +74,6 @@ return { -- Autocompletion
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          { name = 'otter' }, -- for quarto
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
@@ -82,14 +81,6 @@ return { -- Autocompletion
           -- { name = 'buffer' },
         },
       }
-
-      -- nvim-dadbod-autocomplete
-      cmp.setup.filetype({ 'sql' }, {
-      sources = {
-        {name = 'vim-dadbod-completion'},
-        {name = 'buffer'}, --useful for taking info from current file
-      },
-    })
 
       -- `:` cmdline setup.
       cmp.setup.cmdline(':', {
