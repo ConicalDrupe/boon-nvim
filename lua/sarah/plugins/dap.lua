@@ -4,64 +4,21 @@ return {
     dependencies = {
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
+      "mfussenegger/nvim-dap-python",
       "nvim-neotest/nvim-nio",
       "williamboman/mason.nvim",
     },
     config = function()
       local dap = require "dap"
       local ui = require "dapui"
+      local dap_python require "dap-python"
 
       require("dapui").setup()
+      require("nvim-dap-virtual-text").setup({
+        commented=true
+      })
 
-      local c_ls_debugger = vim.fn.exepath "/usr/bin/gdb"
-      if c_ls_debugger ~= "" then
-        dap.adapters.gdb = {
-          type = "executable",
-          command = c_ls_debugger,
-          options = {
-                       -- detached = false,
-                       initialized_timeout_sec = 10,
-                    }
-        }
-
-        dap.configurations.c= {
-          {
-            type = "gdb",
-            name = "Launch",
-            request = "launch",
-            program = function()
-                return vim.fn.input('Path to executable: ',vim.fn.getcwd() .. '/', 'file')
-            end,
-            cwd = "${workspaceFolder}",
-            stopAtBeginningOfMainSubprogram = false,
-            -- exitAfterTaskReturns = false,
-            -- debugAutoInterpretAllModules = false,
-          },
-         {
-            name = 'Select and attach to process',
-            type = 'gdb',
-            request = 'attach',
-            program = function()
-              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-            end,
-            pid = function()
-                local name = vim.fn.input('Executable name (filter): ')
-                return require("dap.utils").pick_process({ filter = name })
-            end,
-            cwd = '${workspaceFolder}',
-          },
-        {
-        name = 'Attach to gdbserver :1234',
-        type = 'gdb',
-        request = 'attach',
-        target = 'localhost:1234',
-        program = function()
-           return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}'
-      },
-        }
-      end
+     dap_python.setup("python3")
 
       vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
       vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
@@ -71,12 +28,15 @@ return {
         require("dapui").eval(nil, { enter = true })
       end)
 
-      vim.keymap.set("n", "<F5>", dap.continue)
-      vim.keymap.set("n", "<F2>", dap.step_into)
-      vim.keymap.set("n", "<F3>", dap.step_over)
-      vim.keymap.set("n", "<F4>", dap.step_out)
+      vim.keymap.set("n", "<leader>dc", dap.continue, { desc = '[d]ap [c]ontinue'})
+      vim.keymap.set("n", "<leader>di", dap.step_into, { desc = '[d]ap step [i]nto'})
+      vim.keymap.set("n", "<leader>do", dap.step_over, { desc = '[d]ap step [o]ver'})
+      vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = '[d]ap step [O]ut'})
       -- vim.keymap.set("n", "<F5>", dap.step_back)
-      vim.keymap.set("n", "<F13>", dap.restart)
+      vim.keymap.set("n", "<leader>dr", dap.restart, { desc = '[d]ap [r]estart'})
+      vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = '[d]ap quit' })
+
+      vim.keymap.set("n", "<leader>du", ui.toggle, { desc = '[d]ap [u]i toggle' })
 
       dap.listeners.before.attach.dapui_config = function()
         ui.open()
