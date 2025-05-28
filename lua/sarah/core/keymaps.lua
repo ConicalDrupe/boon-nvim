@@ -28,10 +28,10 @@ keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
 -- window management
-keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
-keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+keymap.set("n", "<leader>sv", "<C-w>v", {desc = '[s]plit [v]ertical'}) -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", {desc = '[s]plit [h]orizonal'}) -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", {desc = '[s]plit [e]qual'}) -- make split windows equal width & height
+keymap.set("n", "<leader>sx", ":close<CR>", {desc = '[s]plit e[x]it'}) -- close current split window
 keymap.set("n", "<leader>sr", "<C-w>b 10<C-w>_ <C-w><C-k>", {desc = '[s]plit [r]esize - small bottom'}) -- make bottom window 10 lines (for ipython terminal)
 keymap.set("n", "<leader>sR", "<C-w>b <C-w>_ <C-w><C-k>", {desc = '[s]plit [R]esize - large bottom'}) -- make bottom window 10 lines (for ipython terminal)
 
