@@ -1,46 +1,47 @@
 return {
 
-    -- -- Which Color Scheme
-    -- "sontungexpt/witch",
-    -- priority = 1000,
-    -- lazy = false,
-    -- config = function(_, opts)
-    --     require("witch").setup(opts)
-    -- end,
+    -- Which Color Scheme
+    "sontungexpt/witch",
+    priority = 1000,
+    lazy = false,
+    config = function(_, opts)
+        require("witch").setup(opts)
+    end,
 
-    -- -- Visual Studio Code Scheme
+    -- Visual Studio Code Scheme
     -- "askfiy/visual_studio_code",
     -- priority = 1000,
     -- config = function()
-    --   vim.cmd([[colorscheme visual_studio_code]])
+    -- vim.cmd([[colorscheme visual_studio_code]])
     -- end,
 
     -- Rose-Pine
-    "rose-pine/neovim",
-    priority = 1000,
-    opts = {
-        variant = "auto", -- auto, main, moon, or dawn
-        dark_variant = "main", -- main, moon, or dawn
-        dim_inactive_windows = false,
-        extend_background_behind_borders = true,
+    -- "rose-pine/neovim",
+    -- priority = 1000,
+    -- opts = {
+    -- variant = "auto", -- auto, main, moon, or dawn
+    -- dark_variant = "main", -- main, moon, or dawn
+    -- dim_inactive_windows = false,
+    -- extend_background_behind_borders = true,
+    -- 
+    -- enable = {
+    -- terminal = true,
+    -- legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+    -- migrations = true, -- Handle deprecated options automatically
+    -- },
+    -- 
+    -- styles = {
+    -- bold = true,
+    -- italic = true,
+    -- transparency = false,
+    -- },
+    -- },
+    -- config = function()
+    -- vim.cmd[[colorscheme rose-pine-main]]
+    -- end,
 
-        enable = {
-            terminal = true,
-            legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-            migrations = true, -- Handle deprecated options automatically
-        },
-
-        styles = {
-            bold = true,
-            italic = true,
-            transparency = false,
-        },
-    },
-    config = function()
-        vim.cmd[[colorscheme rose-pine-main]]
-    end,
-
-    -- -- Doom Emacs Colorscheme
+    
+    -- Doom Emacs Colorscheme
     -- "NTBBloodbath/doom-one.nvim",
     -- priority = 1000,
     -- dependencies = {
