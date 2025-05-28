@@ -85,7 +85,7 @@ return {
           end
           local function vmap(keys, func, desc)
             vim.keymap.set('v', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-          end
+         end
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           assert(client, 'LSP client not found')

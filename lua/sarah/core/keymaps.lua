@@ -9,7 +9,7 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 
 -- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>")
+keymap.set("i", "kl", "<ESC>")
 
 -- clear search highlights: by pressing Space + h
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -49,6 +49,8 @@ vim.keymap.set('n', '<S-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Telescope for viewing buffers
 vim.keymap.set('n', '<leader><S-h>', '<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<CR>', {desc = '[H]elp Buffers'})
 
--- Create a terminal and then Navigate to Previous Window
-vim.keymap.set('n', '<leader>cr',':split term://ipython3<cr> <bar> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
-vim.keymap.set('n', '<leader>cR',':split term://R --no-save<cr> <bar> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
+-- Create terminal window
+vim.keymap.set('n', '<leader>ct',':split term<cr>k <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
+
+-- Exit out of terminal mode
+vim.keymap.set('t', '<C-t>', "<C-\\><C-n><C-w>h <C-w><C-p>",{silent = true, desc = 'Exit out of terminal mode'})
