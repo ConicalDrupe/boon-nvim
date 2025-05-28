@@ -50,7 +50,8 @@ vim.keymap.set('n', '<S-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader><S-h>', '<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<CR>', {desc = '[H]elp Buffers'})
 
 -- Create terminal window
-vim.keymap.set('n', '<leader>ct',':split term<cr>k <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
+-- vim.keymap.set('n', '<leader>ct',':split terminal<cr> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
+vim.keymap.set('n', '<leader>ct',':split term://bash<cr>' ,{desc = '[c]reate [t]erminal'})
 
 -- Exit out of terminal mode
-vim.keymap.set('t', '<C-t>', "<C-\\><C-n><C-w>h <C-w><C-p>",{silent = true, desc = 'Exit out of terminal mode'})
+vim.keymap.set('t', '<C-t>', "<C-\\><C-n> <C-w><C-p>",{silent = true, desc = 'Exit Terminal mode'})
