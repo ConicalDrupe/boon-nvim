@@ -176,6 +176,12 @@ vim.keymap.set({'n'}, 'rip', '"ryiw vip :sno/<C-R>r//g<left><left>', { desc = '[
 -- Also uses :sno which turns of regex
 vim.keymap.set({'v'}, 'rip', '"ry vip :sno/<C-R>r//g<left><left>', { desc = 'Visual [R]eplace word [I]nside [P]aragraph '})
 
+-- Create terminal window
+-- vim.keymap.set('n', '<leader>ct',':split terminal<cr> <C-w><C-p>' ,{desc = '[c]reate ipython [r]epl'})
+vim.keymap.set('n', '<leader>ct',':split term://bash<cr>' ,{desc = '[c]reate [t]erminal'})
+-- Exit out of terminal mode
+vim.keymap.set('t', '<C-t>', "<C-\\><C-n> <C-w><C-p>",{silent = true, desc = 'Exit Terminal mode'})
+
 -- PAP 
 -- Same principle as RIP and VRIP, except auto completes repalce by pasting in current yank buffer ( <C-R>0 )
 -- vim.keymap.set({'n'}, 'pip', '"ryiw vip :sno/<C-R>r/<C-R>0/g<cr>', { desc = '[P]aste [I]nside [P]aragraph '})
