@@ -72,6 +72,7 @@ return {
           -- 'shfmt',
           'pyright',
           'isort',
+          'pylint'
           -- 'tree-sitter-cli',
           -- 'jupytext',
         },
