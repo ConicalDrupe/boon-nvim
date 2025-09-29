@@ -54,7 +54,7 @@ return {
             end
           end, {silent = true})
 
-          vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/.config/' .. vim.env.NVIM_APPNAME ..'/lua/boon/snippets/snippets.lua<CR>')
+          vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/.config/' .. vim.env.NVIM_APPNAME ..'/lua/boon/snippets/snippets.lua<CR>', {desc='[s]nippets reload'})
       end,
 
       }
