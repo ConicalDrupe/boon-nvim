@@ -19,15 +19,10 @@ local rep = require("luasnip.extras").rep
 -- ls.add_snippets(filetype, snippets)
 ls.add_snippets("all", {
     ls.parser.parse_snippet("libraries_ds", "import os \nimport numpy as np \nimport pandas as pd \nimport matplotlib.pyplot as plt \n"),
-    ls.parser.parse_snippet("scaler", "from sklearn.preprocessing import StandardScaler \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n"),
-    ls.parser.parse_snippet("histogram","plt.figure() \nplt.hist($1,bins=None) \nplt.title('$2')\nplt.show()\n"),
-    ls.parser.parse_snippet("subplots","fig, axes = plt.subplots(nrows=$1,ncols=$2) \naxes[0].$1 \naxes[0].set_title('$2') \naxes[1].$3 \naxes[1].set_title('$4') \nplt.show() \n"),
-    ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
+    ls.parser.parse_snippet("plt_histogram","plt.figure() \nplt.hist($1,bins=None) \nplt.title('$2')\nplt.show()\n"),
+    ls.parser.parse_snippet("plt_subplots","fig, axes = plt.subplots(nrows=$1,ncols=$2) \naxes[0].$1 \naxes[0].set_title('$2') \naxes[1].$3 \naxes[1].set_title('$4') \nplt.show() \n"),
     ls.parser.parse_snippet("OLS", "x_train, x_test , y_train, y_test = train_test_split($1 \n,$2 \n,test_size=0.20 \n,random_state=1) \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n\nlinear_model = LinearRegression() \nlinear_model.fit(x_train,y_train) \n"),
-    ls.parser.parse_snippet("read_csv", "df = pd.read_csv(os.path.join(os.getcwd(),'$1.csv'))\n"),
     ls.parser.parse_snippet("back_one_dir", "back_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)"),
-    ls.parser.parse_snippet("save_csv", "$1.to_csv(os.path.join(os.getcwd(),'$2'),index=False)\n"),
-    ls.parser.parse_snippet("options pandas display","pd.options.display.max_rows = None \npd.options.display.max_columns = None"),
 })
 
 ls.add_snippets("markdown", {
@@ -36,6 +31,7 @@ ls.add_snippets("markdown", {
 
 -- tutorial lua snippets - remember $0 is last visited
 ls.add_snippets("lua", {
+  ls.parser.parse_snippet("expand", "-- this is what was expanded...again!"),
   ls.parser.parse_snippet("lf", "-- Defined in $TM_FILENAME\nlocal $1 = function($2)\n  $0\nend"),
   ls.parser.parse_snippet("mf", "$1.$2 = function($3)\n  $0\nend"),
   s("req_s",fmt("local {} = require('{}')", { i(1, "default"), rep(1) })),
@@ -47,9 +43,7 @@ ls.add_snippets("python",{
   ls.parser.parse_snippet("exp_corr", "corr_fig = plt.figure() \ncorr_matrix = $1.corr() \ncorr_map = sns.heatmap(corr_matrix, annot = True)"),
   ls.parser.parse_snippet("exp_pair", "g = sns.PairGrid($1, corner=True) \ng.map_diag(sns.histplot) \ng.map_offdiag(sns.scotterplot)"),
   ls.parser.parse_snippet("OLS", "x_train, x_test , y_train, y_test = train_test_split($1 \n,$2 \n,test_size=0.20 \n,random_state=1) \n\nscaler = StandardScaler() \nx_train = scaler.fit_transform(x_train) \nx_test = scaler.transform(x_test) \n\nlinear_model = LinearRegression() \nlinear_model.fit(x_train,y_train)"),
-  ls.parser.parse_snippet("read_csv", "df = pd.read_csv(os.path.join(os.getcwd(),'$1.csv'))\n"),
   ls.parser.parse_snippet("back_one_dir", "back_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)"),
-  ls.parser.parse_snippet("save_csv", "$1.to_csv(os.path.join(os.getcwd(),'$2.csv'),index=False)\n"),
 
 
   -- ls.parser.parse_snippet("evaluate","Code here"),

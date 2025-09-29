@@ -1,9 +1,10 @@
 return {
         'L3MON4D3/LuaSnip',
+        version='2.*',
         build = (function()
           -- Build Step is needed for regex support in snippets
           -- This step is not supported in many windows environments
-          -- Remove the below condition to re-enable on windows
+          -- Remove the below condition to re-enable on windowsluasnip
           if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
             return
           end
@@ -53,7 +54,7 @@ return {
             end
           end, {silent = true})
 
-          vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/.config/nvim/lua/boon/plugins/luasnip.lua<CR>')
+          vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/.config/' .. vim.env.NVIM_APPNAME ..'/lua/boon/snippets/snippets.lua<CR>')
       end,
 
       }
