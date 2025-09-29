@@ -228,11 +228,6 @@ return {
       }
 
 
-      lspconfig.julials.setup {
-        capabilities = capabilities,
-        flags = lsp_flags,
-      }
-
       lspconfig.bashls.setup {
         capabilities = capabilities,
         flags = lsp_flags,
@@ -247,10 +242,10 @@ return {
       --   flags = lsp_flags
       -- }
 
-      -- lspconfig.clangd.setup {
-      --   capabilities = capabilities,
-      --   flags = lsp_flags,
-      -- }
+      lspconfig.clangd.setup {
+        capabilities = capabilities,
+        flags = lsp_flags,
+      }
 
       lspconfig.rust_analyzer.setup{
         capabilities = capabilities,
