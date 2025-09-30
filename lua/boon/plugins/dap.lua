@@ -16,8 +16,7 @@ return {
 			require("dapui").setup()
 			require("dap-python").setup("python3")
 			-- require("dap-python").setup("uv") --if using uv
-			-- require("dap-python").test_runner = 'pytest' -- for pytest runner
-			dappy.test_runner = "pytest" -- for pytest runner
+			require("dap-python").test_runner = 'pytest' -- for pytest runner
 
 			--  -- For Hiding API Keys on streaming
 			--   require("nvim-dap-virtual-text").setup {
