@@ -80,6 +80,11 @@ vim.keymap.set("n", "<C-n>", function()
 	vim.cmd([[edit ~/Vaults/Notes2024/]])
 end)
 
+vim.keymap.set("n", "<leader><C-n>", function()
+	vim.cmd([[cd ~/.config/boon-nvim/]])
+	vim.cmd([[Telescope find_files]])
+end, { desc = "<leader> [C]onfig [n]vim" })
+
 -- local function send_cell()
 --   if vim.b['quarto_is_r_mode'] == nil then
 --     vim.fn['slime#send_cell']()
