@@ -24,21 +24,15 @@ return {
 		workspaces = {
 			{
 				name = "Notes2024",
-				path = "/home/boon/Vaults/Notes2024",
+				path = "/home/boon/Documents/Notes2024",
 			},
 			{
-				name = "Medium",
-				path = "/home/boon/Vaults/Medium",
+				name = "Hindi",
+				path = "/home/boon/Documents/Notes2024/Hindi",
 			},
 			{
-				name = "localVault",
-				path = "/home/boon/Vaults/localVault",
-				-- `strict=true` here tells obsidian to use the `path` as the workspace/vault root,
-				-- even though the actual Obsidian vault root may be `~/vaults/personal/`.
-				strict = true,
-				overrides = {
-					-- ...
-				},
+				name = "Writing",
+				path = "/home/boon/Documents/Notes2024/Writing",
 			},
 		},
 
