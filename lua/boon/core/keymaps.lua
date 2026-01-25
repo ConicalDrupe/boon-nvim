@@ -73,11 +73,11 @@ vim.keymap.set(
 	{ desc = "[c]reate ipython [r]epl" }
 )
 
--- Open my Obsian in current buffer
--- vim.keymap.set('n', '<C-n>', '<cmd>edit ~/Vaults/Notes_2024/<cr>')
+-- Open my Obsidian in current buffer
+-- can use <C-t> to cwd to folder
 vim.keymap.set("n", "<C-n>", function()
-	vim.cmd([[vsplit]])
-	vim.cmd([[edit ~/Vaults/Notes2024/]])
+	vim.cmd([[cd ~/Documents/Notes2024/]])
+	vim.cmd([[Telescope file_browser]])
 end)
 
 vim.keymap.set("n", "<leader><C-n>", function()
