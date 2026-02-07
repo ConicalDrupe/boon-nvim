@@ -179,6 +179,7 @@ return {
 			local servers = {
 				clangd = {},
 				-- gopls = {},
+				basedpyright = {},
 				pyright = {},
 				marksman = {
 					filetypes = { "markdown", "quarto" },
