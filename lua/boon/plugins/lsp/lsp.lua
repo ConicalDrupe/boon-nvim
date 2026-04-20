@@ -180,7 +180,7 @@ return {
 				clangd = {},
 				-- gopls = {},
 				basedpyright = {},
-				pyright = {},
+				-- pyright = {},
 				marksman = {
 					filetypes = { "markdown", "quarto" },
 					-- root_dir = util.root_pattern('.git', '.marksman.toml', '_quarto.yml'),
@@ -235,7 +235,8 @@ return {
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 				"black",
-				"pyright",
+				"basedpyright",
+				-- "pyright",
 				"isort",
 				"pylint",
 			})
