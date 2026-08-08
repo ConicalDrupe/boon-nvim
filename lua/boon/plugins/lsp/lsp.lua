@@ -26,8 +26,10 @@ return {
 			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 			{ -- nice loading notifications
 				-- PERF: but can slow down startup
+				-- Groups all $/progress tokens from a client into a single
+				-- collapsible line instead of one popup per token (which is
+				-- what caused the noice.nvim pile-up with basedpyright).
 				"j-hui/fidget.nvim",
-				enabled = false,
 				opts = {},
 			},
 			{ "saghen/blink.cmp" },
@@ -185,7 +187,26 @@ return {
 					},
 				},
 				-- gopls = {},
-				basedpyright = {},
+				basedpyright = {
+					before_init = function(_, config)
+						config.settings = config.settings or {}
+						config.settings.python = config.settings.python or {}
+						local root = config.root_dir
+						local venv_python = root and (root .. "/.venv/bin/python")
+						if venv_python and vim.fn.executable(venv_python) == 1 then
+							config.settings.python.pythonPath = venv_python
+						end
+					end,
+					settings = {
+						basedpyright = {
+							analysis = {
+								autoSearchPaths = true,
+								useLibraryCodeForTypes = true,
+								diagnosticMode = "openFilesOnly",
+							},
+						},
+					},
+				},
 				-- pyright = {},
 				marksman = {
 					filetypes = { "markdown", "quarto" },
